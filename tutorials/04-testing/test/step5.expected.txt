@@ -1,5 +1,0 @@
-    #DEBUG#: s0 = 10000000
-    #DEBUG#: s0 = 7123000000
-    #DEBUG#: s0 = 10000000
-    #DEBUG#: s0 = 2000000
-    #DEBUG#: increment received

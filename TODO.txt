@@ -1,1 +1,0 @@
-TODO: 02-contract/step9.ts compile error
