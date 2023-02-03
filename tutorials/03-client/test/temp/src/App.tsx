@@ -15,7 +15,8 @@ function App() {
 
         <div className='Card'>
           <b>Counter Address</b>
-          <div className='Hint'>{address?.slice(0, 30) + '...'}</div>
+          {/* <div className='Hint'>{address?.slice(0, 30) + '...'}</div> */}
+          <div className='Hint'>{address}</div>
         </div>
 
         <div className='Card'>

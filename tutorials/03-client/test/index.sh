@@ -1,4 +1,4 @@
-rm -rf ./temp
+del ./temp
 npm create vite@latest temp -- --template react-ts
 cd temp
 npm install

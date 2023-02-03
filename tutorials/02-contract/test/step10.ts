@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config({ path: "../../.env" });
+// import dotenv from "dotenv";
+// dotenv.config({ path: "../../.env" });
 
 import { getHttpEndpoint } from "@orbs-network/ton-access";
 import { mnemonicToWalletKey } from "ton-crypto";
