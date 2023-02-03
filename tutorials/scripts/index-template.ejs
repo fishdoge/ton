@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/github.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/highlightjs-func@0.1.1/dist/func.min.js"></script>
+    <script src="../assets/helpers.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+    <meta property="og:title" content="<%= title %>">
+    <title><%= title %></title>
+  </head>
+  <body class="page">
+    <div class="options" data-options="<%= optionsArray %>" ></div>
+    <nav>
+      <a class="alogo" href="https://ton-community.github.io/tutorials">
+        <div class="logo">
+          <img src="../assets/logo.svg" />
+          <p>Tutorials</p>
+        </div>
+      </a>
+    </nav>
+    <div style="display: flex;" class="main">
+      <div class="rightcol">
+        <div class="menu">
+          <div class="selectboxes">
+            <% for (const [index,option] of optionsArray.entries()) { %>
+            <div class="selectbox" data-select="<%= option %>">
+              <h3 class="selectbox-title"><%= options[option].name %></h3>
+            <div class="selectbox-selected">
+              <h3></h3>
+              <img src = '../assets/arrow-down.svg' />
+            </div>
+            <ul class="options">
+              <% for (const value of optionsValuesArray[index]) { %>
+                <li data-value="<%= value %>" class="option">
+                <div class="option-name">
+                  <h4><%= options[option].options[value].name %></h4>
+                  <% if (options[option].options[value].url) { %><a href="<%= options[option].options[value].url %>">docs</a><% } %>
+                </div>
+                <div class="option-small">
+                  <p class="pros">Pros: <%= options[option].options[value].pros %></p>
+                  <p class="cons">Cons: <%= options[option].options[value].cons %></p>
+                </div>
+                </li>
+              <% } %>
+            </ul>
+            </div>
+          <% } %>
+          </div>
+          <div class="more">
+            <h3>More Tutorials</h3>
+            <ul>
+              <li><a href="https://ton-community.github.io/tutorials/01-wallet">01. Working with your first wallet</a></li>
+              <li><a href="https://ton-community.github.io/tutorials/02-contract">02. Writing your first smart contract</a></li>
+              <li><a href="https://ton-community.github.io/tutorials/03-client">03. Building your first web client</a></li>
+              <li><a href="https://ton-community.github.io/tutorials/04-testing">04. Testing your first smart contract</a></li>
+            </ul>
+          </div>
+          <div class="more">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="https://github.com/ton-community/tutorials/blob/main/HELP.md">Problems with this tutorial?</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="posts">
+        <% for (const combination in markdowns) { %>
+         <div class="post" data-combination="<%= combination %>">
+            <%- htmls[combination] %>
+         </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
