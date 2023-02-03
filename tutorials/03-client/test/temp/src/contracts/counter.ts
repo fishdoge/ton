@@ -20,13 +20,13 @@ export default class Counter implements Contract {
     });
   }
   
-  async sendIncrement(provider: ContractProvider, via: Sender) {
+  async sendIncrement(provider: ContractProvider, via: Sender, value: string) {
     const messageBody = beginCell()
       .storeUint(1, 32) // op (op #1 = increment)
       .storeUint(0, 64) // query id
       .endCell();
     await provider.internal(via, {
-      value: "0.002", // send 0.002 TON for gas
+      value: value, // send 0.002 TON for gas
       body: messageBody
     });
   }

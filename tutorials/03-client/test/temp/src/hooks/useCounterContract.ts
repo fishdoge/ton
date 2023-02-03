@@ -35,8 +35,10 @@ export function useCounterContract() {
   return {
     value: val,
     address: counterContract?.address.toString(),
-    sendIncrement: () => {
-      return counterContract?.sendIncrement(sender);
+    
+    // 傳入 value 參數，預設值為 0.002
+    sendIncrement: (value: string = "0.002") => {
+      return counterContract?.sendIncrement(sender, value);
     },
   };
 }
