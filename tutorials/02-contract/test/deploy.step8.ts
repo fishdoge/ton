@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config({ path: "../../.env" });
+// import dotenv from "dotenv";
+// dotenv.config({ path: "../../.env" });
 
 import * as fs from "fs";
 import { getHttpEndpoint } from "@orbs-network/ton-access";
@@ -25,7 +25,7 @@ async function deploy() {
   }
 
   // open wallet v4 (notice the correct wallet version here)
-  const mnemonic = process.env.MNEMONIC;
+  const mnemonic = 'unfold sugar water apple banana cake dim a d f g h e c s b d e h m k h y r';
   const key = await mnemonicToWalletKey(mnemonic!.split(" "));
   const wallet = WalletContractV4.create({ publicKey: key.publicKey, workchain: 0 });
 

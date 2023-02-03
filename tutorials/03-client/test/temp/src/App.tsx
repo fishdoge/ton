@@ -1,16 +1,14 @@
 import '@twa-dev/sdk';
-import { useState } from 'react';
 import './App.css';
+import { useState } from 'react';
 import { TonConnectButton } from '@tonconnect/ui-react';
 import { useTonConnect } from './hooks/useTonConnect';
 import { useCounterContract } from './hooks/useCounterContract';
 
 function App() {
   const { connected } = useTonConnect();
-
-  const [ money, setMoney ] = useState('');
-
   const { value, address, sendIncrement } = useCounterContract();
+  const [ money, setMoney ] = useState('0');
 
   return (
     <div className='App'>
