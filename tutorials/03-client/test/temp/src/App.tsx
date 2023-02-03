@@ -1,4 +1,5 @@
 import '@twa-dev/sdk';
+import { useState } from 'react';
 import './App.css';
 import { TonConnectButton } from '@tonconnect/ui-react';
 import { useTonConnect } from './hooks/useTonConnect';
@@ -6,6 +7,9 @@ import { useCounterContract } from './hooks/useCounterContract';
 
 function App() {
   const { connected } = useTonConnect();
+
+  const [ money, setMoney ] = useState('');
+
   const { value, address, sendIncrement } = useCounterContract();
 
   return (
@@ -24,10 +28,13 @@ function App() {
           <div>{value ?? 'Loading...'}</div>
         </div>
 
+        <label className='inline-block'>輸入金額：</label>
+        <input className='inline-block' type="text" value={money} onChange={(event) => setMoney(event.target.value)} />
+
         <a
           className={`Button ${connected ? 'Active' : 'Disabled'}`}
           onClick={() => {
-            sendIncrement();
+            sendIncrement(money);
           }}
         >
           Increment
